@@ -3,7 +3,10 @@ exports.homepage = async (req, res) => {
     title: "NodeJs Notes",
     description: "Notes App made with Ejs MongoDB",
   };
-  res.render("index", locals);
+  res.render("index", {
+    locals,
+    layout: "../views/layouts/front-page",
+  });
 };
 
 exports.about = async (req, res) => {
