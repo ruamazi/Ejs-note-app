@@ -1,9 +1,9 @@
-<div class="container-fluid container-fluid-custom pb-5 mb-5">
-  <div class="row">
+<div class="container-fluid container-fluid-custom" style="min-height: 78vh">
+  <div class="row search-display">
     <% if(searchResults != '') { %> <% searchResults.forEach(function (note,
     index) { %>
 
-    <a href="/dashboard/item/<%= note._id %>">
+    <a href="/dashboard/item/<%= note._id %>" class="my-1">
       <h4><%= note.title %></h4>
     </a>
 
