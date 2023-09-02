@@ -1,6 +1,6 @@
 exports.homepage = async (req, res) => {
   const locals = {
-    title: "NodeJs Notes",
+    title: "NoteBox App",
     description: "Notes App made with Ejs MongoDB",
   };
   res.render("index", {
@@ -11,7 +11,7 @@ exports.homepage = async (req, res) => {
 
 exports.about = async (req, res) => {
   const locals = {
-    title: "About - NodeJs Notes",
+    title: "About - NoteBox",
     description: "About page",
   };
   res.render("about", locals);

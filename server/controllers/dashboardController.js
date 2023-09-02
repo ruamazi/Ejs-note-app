@@ -15,7 +15,7 @@ exports.dashboard = async (req, res) => {
     const notes = await Note.aggregate([
       {
         $sort: {
-          createdAt: -1,
+          updatedAt: -1,
         },
       },
       { $match: { user: new mongoose.Types.ObjectId(req.user.id) } },
@@ -58,7 +58,7 @@ exports.dashboardViewNote = async (req, res) => {
     res.render("dashboard/view-note", {
       noteID: req.params.id,
       note,
-      layout: "",
+      layout: layoutPath,
     });
   } else {
     res.send("Somthing went wrong!");
@@ -70,7 +70,7 @@ exports.dashboardUpdateNote = async (req, res) => {
   try {
     await Note.findOneAndUpdate(
       { _id: req.params.id },
-      { title: req.body.title, body: req.body.body }
+      { title: req.body.title, body: req.body.body, updatedAt: Date.now() }
     ).where({ user: req.user.id });
     res.redirect("/dashboard");
   } catch (error) {
